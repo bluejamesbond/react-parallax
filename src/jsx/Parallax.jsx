@@ -30,7 +30,7 @@ export default class Parallax extends React.Component {
 		return (
 			<div className="react-parallax">
 				{this.props.bgImage ? (
-					<img className="react-parallax-bgimage" src={this.props.bgImage} style={this.getImagePosition()} ref="bgImage" alt=""/>
+					<div className="react-parallax-bgimage" src={this.props.bgImage} style={this.getImagePosition()} ref="bgImage" alt=""></div>
 				) : ''}
 				<div className="react-parallax-content" style={this.childStyle} ref="content">
 					{this.props.children}
