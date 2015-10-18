@@ -30,7 +30,7 @@ export default class Parallax extends React.Component {
 		return (
 			<div className="react-parallax">
 				{this.props.bgImage ? (
-					<div className="react-parallax-bgimage" src={this.props.bgImage} style={this.getImagePosition()} ref="bgImage" alt=""></div>
+					<div className="react-parallax-bgimage" style={this.getImageStyle()} ref="bgImage" alt=""></div>
 				) : ''}
 				<div className="react-parallax-content" style={this.childStyle} ref="content">
 					{this.props.children}
@@ -132,7 +132,7 @@ export default class Parallax extends React.Component {
 	/**
 	 * returns position for the background image
 	 */
-	getImagePosition() {
+	getImageStyle() {
 		let backPos = 0;
 		if (this.props.disabled !== true) {
 			backPos = Math.floor(((this.state.top + this.contentHeight) / this.windowHeight) * this.props.strength);
@@ -143,7 +143,10 @@ export default class Parallax extends React.Component {
 			WebkitTransform: 'translate3d(-50%, -' + backPos + 'px, 0)',
 			transform: 'translate3d(-50%, -' + backPos + 'px, 0)',
 			height: height,
-			width: width
+			width: width,
+			backgroundImage: 'url(' + this.props.bgImage + ')',
+			backgroundSize: 'cover',
+			backgroundPosition: 'center center'
 		};
 		if (this.props.blur) {
 			style.WebkitFilter = 'blur(' + this.props.blur + 'px)';
