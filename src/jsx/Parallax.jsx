@@ -138,7 +138,7 @@ export default class Parallax extends React.Component {
 			backPos = Math.floor(((this.state.top + this.contentHeight) / this.windowHeight) * this.props.strength);
 		}
 		let height = this.state.autoHeight ? 'auto' : Math.floor(this.contentHeight + this.props.strength);
-		let width = !this.state.autoHeight ? 'auto' : this.contentWidth;
+		let width = !this.state.autoHeight ? '100%' : this.contentWidth;
 		let style = {
 			WebkitTransform: 'translate3d(-50%, -' + backPos + 'px, 0)',
 			transform: 'translate3d(-50%, -' + backPos + 'px, 0)',
